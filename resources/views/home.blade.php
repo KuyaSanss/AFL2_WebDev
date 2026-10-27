@@ -1,85 +1,147 @@
-{{-- @extends('layouts.app')
-@section('title', 'Beranda | Era Jaya')
-@section('content')
-<main>
-    <section class="hero">
-        <div class="hero-dalam wadah">
-            <span class="eyebrow">MITRA BANGUN ANDALAN ANDA</span>
-            <h1>Bahan Bangunan Lengkap,<br><em>Harga Bersaing</em></h1>
-            <p>Dari pondasi hingga sentuhan akhir, kami menyediakan material pilihan untuk setiap kebutuhan pembangunan Anda.</p>
-            <div class="aksi">
-                <a href="{{ url('/katalog') }}" class="tombol utama">Lihat Katalog →</a>
-                <a href="https://wa.me/{{ $kontak['whatsapp'] }}?text={{ urlencode('Halo Era Jaya, saya ingin bertanya tentang produk.') }}" class="tombol garis" target="_blank" rel="noreferrer">Hubungi via WhatsApp</a>
-            </div>
-            <div class="catatan">Untuk pemesanan, silakan hubungi kami melalui WhatsApp.</div>
-        </div>
-    </section>
-    <div class="hazard"></div>
+@extends('layouts.app')
 
-    <section class="bagian sejarah">
-        <div class="wadah dua-kolom">
-            <div class="foto-sejarah"><img src="{{ $fotoSejarah }}" alt="Bangunan proyek pelanggan Era Jaya"><span>SEJAK 20XX</span></div>
-            <div>
-                <div class="judul-bagian"><span>TENTANG KAMI</span><h2>Sejarah Toko</h2><i></i></div>
-                <p class="lead">Berawal dari toko kecil pada tahun 20XX, Era Jaya hadir untuk membantu masyarakat mendapatkan bahan bangunan berkualitas dengan harga yang jujur.</p>
-                <p>Bagian ini adalah teks sementara yang dapat Anda ganti dengan kisah perjalanan toko, nilai keluarga, serta komitmen pelayanan Era Jaya.</p>
-                <div class="linimasa">
-                    <div><b>20XX</b><span>Toko pertama dibuka</span></div>
-                    <div><b>20XX</b><span>Perluasan gudang dan layanan</span></div>
-                    <div><b>Kini</b><span>Melayani kebutuhan proyek Anda</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bagian metal">
-        <div class="wadah">
-            <div class="judul-bagian gelap"><span>ARAH & KOMITMEN</span><h2>Visi & Misi</h2><i></i></div>
-            <div class="kartu-dua">
-                <article class="kartu-nilai"><div class="ikon-kotak">◎</div><h3>Visi</h3><p>Menjadi toko bahan bangunan terpercaya dan terlengkap yang tumbuh bersama pelanggan.</p></article>
-                <article class="kartu-nilai"><div class="ikon-kotak">☷</div><h3>Misi</h3><ul><li>Menyediakan produk berkualitas</li><li>Memberikan harga yang bersaing</li><li>Melayani dengan cepat dan ramah</li><li>Menjadi mitra tepercaya setiap proyek</li></ul></article>
-            </div>
-        </div>
-    </section>
-
-    <section class="bagian">
-        <div class="wadah">
-            <div class="judul-bagian"><span>KATA MEREKA</span><h2>Kepercayaan Pelanggan</h2><i></i></div>
-            <div class="testimoni">
-                @foreach ($testimoni as $t)
-                <article><div class="bintang">★★★★★</div><blockquote>“{{ $t['kutipan'] }}”</blockquote><b>{{ $t['nama'] }}</b><span>{{ $t['peran'] }}</span></article>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-    <section class="bagian lokasi">
-        <div class="wadah">
-            <div class="judul-bagian"><span>KUNJUNGI KAMI</span><h2>Lokasi & Jam Buka</h2><i></i></div>
-            <div class="lokasi-grid">
-                <div class="map"><iframe src="{{ $kontak['mapEmbed'] }}" title="Peta lokasi Era Jaya" loading="lazy"></iframe><a href="{{ $kontak['mapLink'] }}" class="tombol utama" target="_blank" rel="noreferrer">Buka di Google Maps</a></div>
-                <div class="kontak-box">
-                    <div><span class="ikon">⌖</span><span><b>Alamat Toko</b>{{ $kontak['alamat'] }}</span></div>
-                    <div><span class="ikon">◷</span><span><b>Jam Operasional</b>@foreach ($kontak['jam'] as $jam)<span>{{ $jam }}</span>@endforeach</span></div>
-                    <div><span class="ikon">☎</span><span><b>Telepon / WhatsApp</b>{{ $kontak['telepon'] }}</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-@endsection --}}
-
-@extends('mainlayout')
-
-@section('title', 'Home')
-
-@section('styles')
-    <link rel="stylesheet" href="{{ asset('mydesign/style.css') }}">
-@endsection
+@section('title', 'Beranda - Era Jaya Toko Bangunan')
 
 @section('content')
-    <div class="container">
-        <h1>WELCOME HOME</h1>
-        <p>Welcome to my pages !</p>
-    </div>
+
+    {{-- ========== HERO ========== --}}
+    <section class="hero" style="--hero-image: url('{{ asset('images/hero.jpg') }}');">
+        <div class="container hero__content">
+            <p class="eyebrow eyebrow--yellow">Mitra Bangun Andalan Anda</p>
+
+            <h1 class="hero__title">
+                Bahan Bangunan Lengkap,<br>
+                <span class="text-yellow">Harga Bersaing</span>
+            </h1>
+
+            <p class="hero__text">
+                Dari pondasi hingga sentuhan akhir, kami menyediakan material pilihan
+                untuk setiap kebutuhan pembangunan Anda.
+            </p>
+
+            <div class="hero__actions">
+                <a href="{{ route('catalogue') }}" class="btn btn--red">
+                    Lihat Katalog
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+                </a>
+                <a href="https://wa.me/{{ config('app.wa_number', '628123456789') }}" class="btn btn--outline" target="_blank" rel="noopener">
+                    Hubungi via WhatsApp
+                </a>
+            </div>
+
+            <p class="hero__note">Untuk pemesanan, silakan hubungi kami melalui WhatsApp.</p>
+        </div>
+
+        <div class="hazard" aria-hidden="true"></div>
+    </section>
+
+    {{-- About Us --}}
+    <section class="section section--cream" id="tentang">
+        <div class="container about">
+            <div class="about__media">
+                <div class="about__frame">
+                    <img src="{{ asset('images/toko.jpg') }}" alt="Tampak depan toko Era Jaya">
+                    <span class="about__badge">Sejak 20XX</span>
+                </div>
+            </div>
+
+            <div class="about__body">
+                <p class="eyebrow">Tentang Kami</p>
+                <h2 class="section-title">Sejarah Toko</h2>
+
+                <p class="about__lead">
+                    Berawal dari toko kecil pada tahun 20XX, Era Jaya hadir untuk membantu
+                    masyarakat mendapatkan bahan bangunan berkualitas dengan harga yang jujur.
+                </p>
+                <p class="about__text">
+                    Bagian ini adalah teks sementara yang dapat Anda ganti dengan kisah
+                    perjalanan toko, nilai keluarga, serta komitmen pelayanan Era Jaya.
+                </p>
+
+                <ul class="timeline">
+                    <li><strong>20XX</strong><span>Toko pertama dibuka</span></li>
+                    <li><strong>20XX</strong><span>Perluasan gudang dan layanan</span></li>
+                    <li><strong>Kini</strong><span>Melayani kebutuhan proyek Anda</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    {{-- Visi & Misi --}}
+    <section class="section section--dark" id="visi-misi">
+        <div class="container">
+            <p class="eyebrow eyebrow--yellow">Arah &amp; Komitmen</p>
+            <h2 class="section-title section-title--light">Visi &amp; Misi</h2>
+
+            <div class="vm-grid">
+                <article class="vm-card">
+                    <div class="vm-card__icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/></svg>
+                    </div>
+                    <h3>Visi</h3>
+                    <p>Menjadi toko bahan bangunan terpercaya dan terlengkap yang tumbuh bersama pelanggan.</p>
+                </article>
+
+                <article class="vm-card">
+                    <div class="vm-card__icon">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 6 1.5 1.5L7 5"/><path d="m3 12 1.5 1.5L7 11"/><path d="m3 18 1.5 1.5L7 17"/><path d="M11 6h10M11 12h10M11 18h10"/></svg>
+                    </div>
+                    <h3>Misi</h3>
+                    <ul class="vm-card__list">
+                        <li>Menyediakan produk berkualitas</li>
+                        <li>Memberikan harga yang bersaing</li>
+                        <li>Melayani dengan cepat dan ramah</li>
+                        <li>Menjadi mitra tepercaya setiap proyek</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    {{-- Lokasi & Jam Buka --}}
+    <section class="section section--sand" id="lokasi">
+        <div class="container">
+            <p class="eyebrow">Kunjungi Kami</p>
+            <h2 class="section-title">Lokasi &amp; Jam Buka</h2>
+
+            <div class="location">
+                <div class="location__map">
+                    <div class="map-frame">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7921.97643371301!2d112.04198844416277!3d-6.892012122428273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77bd52e177f59d%3A0x773323ab518d5c46!2sTB.%20Era%20Jaya!5e0!3m2!1sen!2sid!4v1793116530339!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                    <a href="https://maps.google.com/?q=Jakarta" class="btn btn--red btn--sm" target="_blank" rel="noopener">
+                        Buka di Google Maps
+                    </a>
+                </div>
+
+                <aside class="info-panel">
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.800 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                        <div>
+                            <h4>Alamat Toko</h4>
+                            <p>Jl. Diponegoro No.52, Latsari, Kec. Tuban, Kabupaten Tuban, Jawa Timur 62314</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>Senin–Sabtu: 07.30–17.00</p>
+                            <p>Minggu: 08.00–14.00</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+                        <div>
+                            <h4>Telepon / WhatsApp</h4>
+                            <p>08XX-XXXX-XXXX</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
 @endsection
