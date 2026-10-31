@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Era Jaya - Toko Bangunan')</title>
     <meta name="description" content="@yield('description', 'Era Jaya, toko bangunan dengan material lengkap dan harga bersaing.')">
+    <link rel="icon" href="{{ asset('images/logo.png') }}">
+
+    <script>document.documentElement.classList.add('js-anim');</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +25,7 @@
 
     @include('footer')
 
-    {{-- Tombol WhatsApp melayang --}}
-    <a href="https://wa.me/{{ config('app.wa_number', '628') }}"
+    <a href="https://wa.me/{{ config('app.wa_number', '628123456789') }}"
        class="wa-float" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.5 8.5 0 1 1 21 11.5Z"/>
@@ -33,5 +35,6 @@
     </a>
 
     @stack('scripts')
+    <script src="{{ asset('js/main.js') }}" defer></script>
 </body>
 </html>

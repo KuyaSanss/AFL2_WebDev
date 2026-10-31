@@ -9,7 +9,7 @@ Route::get('/', function () {
     return view('home', []);
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/catalogue', [CatalogueController::class, 'index'])->name('catalogue');
 
