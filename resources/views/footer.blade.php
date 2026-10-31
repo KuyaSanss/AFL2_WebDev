@@ -20,6 +20,7 @@
             <p>Senin–Sabtu: 07.00 – 16.00</p>
             <p>Minggu: 07.00 – 15.00</p>
         </div>
+    </div>
 
     <div class="footer__bottom">
         <div class="container">
