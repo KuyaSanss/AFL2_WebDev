@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Testimoni;
-use Illuminate\Http\Request;
+use App\Models\Faq;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
-        $testimonis = Testimoni::take(3)->get();
+      public function index()
+   {
+       $testimonials = Testimonial::active()->limit(12)->get();
+       $faqs         = Faq::active()->get();
 
-        return view('home', compact('testimonis'));
-    }
+       return view('home', compact('testimonials', 'faqs'));
+   }
 }
