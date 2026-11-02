@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('mydesign/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('mydesign/style.css') }}?v={{ filemtime(public_path('mydesign/style.css')) }}">
     @stack('styles')
 </head>
 <body>
@@ -35,6 +35,6 @@
     </a>
 
     @stack('scripts')
-    <script src="{{ asset('js/main.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}?v={{ filemtime(public_path('js/main.js')) }}" defer></script>
 </body>
 </html>
