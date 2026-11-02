@@ -1,86 +1,114 @@
-{{-- @extends('layouts.app')
-@section('title', 'Katalog | Era Jaya')
+@extends('layouts.app')
+
+@section('title', 'Katalog - Era Jaya Toko Bangunan')
+
 @section('content')
-<main class="halaman">
-    <section class="page-head">
-        <div class="wadah"><span>KATALOG PRODUK</span>
-            <h1>Temukan Material<br><em>Yang Anda Butuhkan</em></h1>
-            <p>Cari bahan bangunan pilihan. Harga dapat berubah—hubungi kami untuk konfirmasi stok.</p>
+
+    <section class="page-hero">
+        <div class="container page-hero__content">
+            <p class="eyebrow eyebrow--yellow">Katalog Produk</p>
+
+            <h1 class="page-hero__title">
+                Temukan Material<br>
+                <span class="text-yellow">Yang Anda Butuhkan</span>
+            </h1>
+
+            <p class="page-hero__text">Cari dari ribuan bahan bangunan pilihan. Harga dapat berubah, hubungi kami untuk
+                konfirmasi stok.</p>
+        </div>
+
+        <div class="hazard"></div>
+    </section>
+
+    <section class="catalog-filter">
+        <div class="container">
+            <form action="{{ route('catalogue') }}" method="GET" class="catalog-filter__form">
+                <div class="catalog-search">
+                    <span>🔍</span>
+                    <input type="text" name="cari" value="{{ $cari }}" placeholder="Cari nama barang...">
+                </div>
+
+                <div class="catalog-sort">
+                    <label>Urutkan</label>
+                    <select name="urutan" onchange="this.form.submit()">
+                        <option value="">Tanpa Urutan</option>
+                        <option value="termurah" {{ $urutan == 'termurah' ? 'selected' : '' }}>Harga Terendah</option>
+                        <option value="termahal" {{ $urutan == 'termahal' ? 'selected' : '' }}>Harga Tertinggi</option>
+                    </select>
+                </div>
+            </form>
+
+            <p class="catalog-filter__count">
+                Menampilkan <strong>{{ $barangs->count() }}</strong> dari <strong>{{ $barangs->total() }}</strong> produk
+            </p>
         </div>
     </section>
-    <div class="hazard"></div>
-    <section class="kontrol">
-        <div class="wadah kontrol-grid">
-            <label class="pencarian"><span>⌕</span><input id="cariProduk" type="search"
-                    placeholder="Cari nama barang..."></label>
-            <label><span>Jenis Barang</span><select id="filterJenis">
-                    <option value="Semua">Semua</option>@foreach (collect($produk)->pluck('jenis')->unique() as $jenis)
-                    <option value="{{ $jenis }}">{{ $jenis }}</option>@endforeach
-                </select></label>
-            <label><span>Merk</span><select id="filterMerk">
-                    <option value="Semua">Semua</option>@foreach (collect($produk)->pluck('merk')->unique() as $merk)
-                    <option value="{{ $merk }}">{{ $merk }}</option>@endforeach
-                </select></label>
-            <label><span>Urutkan</span><select id="urutProduk">
-                    <option value="nama">Nama A-Z</option>
-                    <option value="murah">Harga Terendah</option>
-                    <option value="mahal">Harga Tertinggi</option>
-                </select></label>
-            <button class="reset" id="resetFilter" type="button">Reset Filter</button>
-            <p>Menampilkan <b id="jumlahProduk">{{ count($produk) }}</b> produk</p>
-        </div>
-    </section>
-    <section class="bagian katalog">
-        <div class="wadah">
-            <div class="pesan-wa">Untuk pemesanan, silakan hubungi kami melalui WhatsApp.</div>
-            <div class="tabel" id="daftarProduk">
-                <div class="tr kepala"><span>Nama
-                        Barang</span><span>Merk</span><span>Jenis</span><span>Satuan</span><span>Harga</span><span></span>
-                </div>
-                @foreach ($produk as $p)
-                <div class="tr baris-produk" data-nama="{{ strtolower($p['nama']) }}" data-merk="{{ $p['merk'] }}"
-                    data-jenis="{{ $p['jenis'] }}" data-harga="{{ $p['harga'] }}">
-                    <strong>{{ $p['nama'] }}</strong><span>{{ $p['merk'] }}</span><span><i>{{ $p['jenis']
-                            }}</i></span><span>/{{ $p['satuan'] }}</span><b>Rp {{ number_format($p['harga'], 0, ',',
-                        '.') }}</b>
-                    <a class="tombol kecil" target="_blank" rel="noreferrer"
-                        href="https://wa.me/6281234567890?text={{ urlencode('Halo Era Jaya, saya ingin bertanya tentang produk '.$p['nama'].'.') }}">Tanya
-                        via WhatsApp</a>
-                </div>
-                @endforeach
-                <div class="kosong" id="produkKosong" hidden>
+
+    <section class="section section--cream catalog-section">
+        <div class="container">
+            <p class="catalog-note">Untuk pemesanan, silakan hubungi kami melalui WhatsApp.</p>
+
+            @if ($barangs->count() == 0)
+                <div class="catalog-empty">
                     <h2>Produk tidak ditemukan.</h2>
-                    <p>Coba kata kunci atau filter lain.</p>
+                    <p>Coba kata kunci lain.</p>
                 </div>
-            </div>
+            @else
+                <div class="catalog-table-wrap">
+                    <table class="catalog-table">
+                        <thead>
+                            <tr>
+                                <th>Nama Barang</th>
+                                <th>Kode</th>
+                                <th>Stok</th>
+                                <th>Satuan</th>
+                                <th>Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($barangs as $barang)
+                                <tr>
+                                    <td class="catalog-table__name">{{ $barang->name }}</td>
+                                    <td>{{ $barang->code }}</td>
+                                    <td>
+                                        @if ($barang->stok > 0)
+                                            <span class="catalog-badge">{{ $barang->stok + 0}}</span>
+                                        @else
+                                            <span class="catalog-badge catalog-badge--empty">Habis</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ strtolower($barang->satuan) }}</td>
+                                    <td class="catalog-table__price">
+                                        @if ($barang->hargaJual)
+                                            Rp {{ number_format($barang->hargaJual, 0, ',', '.') }}
+                                        @else
+                                            Hubungi kami
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="catalog-pagination">
+                    @if ($barangs->currentPage() > 1)
+                        <a href="{{ $barangs->previousPageUrl() }}" class="catalog-pagination__btn">‹ Sebelumnya</a>
+                    @endif
+
+                    @for ($i = max(1, $barangs->currentPage() - 2); $i <= min($barangs->lastPage(), $barangs->currentPage() + 2); $i++)
+                        <a href="{{ $barangs->url($i) }}"
+                            class="catalog-pagination__btn catalog-pagination__num {{ $i == $barangs->currentPage() ? 'is-active' : '' }}">
+                            {{ $i }}
+                        </a>
+                    @endfor
+
+                    @if ($barangs->currentPage() < $barangs->lastPage())
+                        <a href="{{ $barangs->nextPageUrl() }}" class="catalog-pagination__btn">Berikutnya ›</a>
+                    @endif
+                </div>
+            @endif
         </div>
     </section>
-</main>
-@endsection --}}
 
-@extends('mainlayout')
-
-@section('title', 'Home')
-
-@section('styles')
-    <link rel="stylesheet" href="{{ asset('mydesign/style.css') }}">
-@endsection
-
-@section('content')
-    <div class="container">
-        <h1>Catalogue</h1>
-        <p>Ini adalah halaman katalog produk.</p>
-    </div>
-
-    <h2>Daftar Barang</h2>
-
-    @foreach ($barangs as $barang)
-        <p>
-            code: {{ $barang->code }} <br>
-            name: {{ $barang->name }} <br>
-            satuan: {{ $barang->satuan }} <br>
-            stok: {{ $barang->stok }} <br>
-            hargaJual: {{ $barang->hargaJual }}
-        </p>
-    @endforeach
 @endsection

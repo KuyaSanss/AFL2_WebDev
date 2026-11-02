@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
             $table->integer('number')->unique();
-            $table->string('code')->unique();
+            $table->string('code');
             $table->string('name');
             $table->string('satuan');
-            $table->integer('stok')->default(0);
-            $table->integer('hargaJual');
+            $table->decimal('stok')->default(0);
+            $table->integer('hargaJual')->nullable();
             $table->timestamps();
         });
     }
