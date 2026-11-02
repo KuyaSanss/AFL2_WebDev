@@ -1,6 +1,3 @@
-/* =========================================================
-   ERA JAYA - skrip umum (navbar, animasi scroll, FAQ)
-   ========================================================= */
 (function () {
     'use strict';
 
@@ -65,8 +62,6 @@
 
     /* ---------- Animasi muncul saat di-scroll ---------- */
     function initReveal() {
-        // Elemen yang otomatis diberi animasi (tanpa perlu ubah file Blade lain)
-        // [selector, animasi, jeda antar elemen (ms), jeda awal (ms)]
         var auto = [
             ['.section .eyebrow',    'fade-up', 0,   0],
             ['.section-title',       'fade-up', 0,   100],
