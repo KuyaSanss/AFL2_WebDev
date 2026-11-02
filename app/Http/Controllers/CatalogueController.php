@@ -7,10 +7,27 @@ use Illuminate\Http\Request;
 
 class CatalogueController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $barangs = Barang::take(3)->get();
+        $cari   = $request->cari;
+        $urutan = $request->urutan;
 
-        return view('catalogue', compact('barangs'));
+        $query = Barang::query();
+
+        if ($cari) {
+            $query->where('name', 'like', '%' . $cari . '%');
+        }
+
+        if ($urutan == 'termurah') {
+            $query->orderBy('hargaJual', 'asc');
+        } elseif ($urutan == 'termahal') {
+            $query->orderBy('hargaJual', 'desc');
+        } else {
+            $query->orderBy('number', 'asc');
+        }
+
+        $barangs = $query->paginate(50)->withQueryString();
+
+        return view('catalogue', compact('barangs', 'cari', 'urutan'));
     }
 }
