@@ -5,9 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CatalogueController;
 use App\Http\Controllers\GalleryController;
 
-Route::get('/', function () {
-    return view('home', []);
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 

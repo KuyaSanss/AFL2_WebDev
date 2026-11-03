@@ -1067,3 +1067,7 @@ html, body { overflow-x: hidden; }
     letter-spacing: .04em;       /* sebelumnya .08em, huruf lebih rapat */
     gap: 6px;
 }
+
+@media (max-width: 768px) {
+    .map-frame { min-height: 280px; }
+}
