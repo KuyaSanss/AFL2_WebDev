@@ -49,7 +49,7 @@
 
                 <p class="about__lead" data-animate="fade-up" data-delay="150">
                     Berawal dari toko kecil pada tahun 2012, Era Jaya hadir untuk membantu
-                    masyarakat mendapatkan bahan bangunan berkualitas dengan harga yang jujur.
+                    masyarakat mendapatkan bahan bangunan berkualitas dengan harga yang bersahabat.
                 </p>
                 <p class="about__text" data-animate="fade-up" data-delay="250">
                     Tb. Era Jaya didirikan oleh Alm. Fina Styawati, yang memiliki passion besar dalam dunia jual beli sejak membantu usaha orang tuanya, Safari Fashion, setelah lulus SMA. Berbekal pengalaman, tabungan pribadi, serta dukungan keluarga, Alm. Fina memulai usahanya pada tahun 2012 dengan memanfaatkan sebagian tempat di sebelah toko Safari Fashion.

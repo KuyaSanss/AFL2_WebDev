@@ -25,7 +25,16 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BarangSeeder::class,
             TestimoniSeeder::class,
+<<<<<<< HEAD
+            FaqSeeder::class,  
+            TestimonialSeeder::class,
+            TestimoniSeeder::class,
         ]);
 
+>>>>>>> Stashed changes
+=======
+        ]);
+
+>>>>>>> 5f31a8cdbeb54a6536fad27b2564e9ee7661f55c
     }
 }
