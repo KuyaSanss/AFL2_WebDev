@@ -9,7 +9,6 @@
         else fn();
     }
 
-    /* ---------- Navbar: menu HP + mengecil saat di-scroll ---------- */
     function initNavbar() {
         var header = d.querySelector('[data-navbar]');
         if (!header) return;
@@ -40,7 +39,6 @@
         onScroll();
     }
 
-    /* ---------- Bar progres scroll di paling atas ---------- */
     function initProgress() {
         var bar = d.createElement('div');
         bar.className = 'scroll-progress';
@@ -60,7 +58,6 @@
         update();
     }
 
-    /* ---------- Animasi muncul saat di-scroll ---------- */
     function initReveal() {
         var auto = [
             ['.section .eyebrow',    'fade-up', 0,   0],
@@ -105,7 +102,6 @@
 
         Array.prototype.forEach.call(items, function (el) { io.observe(el); });
 
-        // jaga-jaga: kalau sudah di dasar halaman, tampilkan sisa elemen yang belum muncul
         window.addEventListener('scroll', function () {
             if (window.innerHeight + window.scrollY < d.documentElement.scrollHeight - 4) return;
             Array.prototype.forEach.call(items, function (el) {
@@ -114,7 +110,6 @@
         }, { passive: true });
     }
 
-    /* ---------- FAQ accordion ---------- */
     function initFaq() {
         var list = d.querySelector('[data-faq]');
         if (!list) return;
@@ -131,7 +126,7 @@
             if (!btn) return;
             btn.addEventListener('click', function () {
                 var willOpen = !item.classList.contains('is-open');
-                Array.prototype.forEach.call(items, function (o) { setItem(o, false); }); // satu terbuka sekali waktu
+                Array.prototype.forEach.call(items, function (o) { setItem(o, false); });
                 setItem(item, willOpen);
             });
         });

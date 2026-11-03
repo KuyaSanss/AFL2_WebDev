@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Testimoni extends Model
 {
-    /** @use HasFactory<\Database\Factories\TestimoniFactory> */
     use HasFactory;
 
     protected $fillable = [

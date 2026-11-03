@@ -9,7 +9,6 @@
 
 @section('content')
 
-    {{-- HEADER --}}
     <section class="page-hero">
         <div class="container page-hero__content">
             <p class="eyebrow eyebrow--yellow">Galeri Toko</p>
@@ -25,7 +24,6 @@
         <div class="hazard" aria-hidden="true"></div>
     </section>
 
-    {{-- PHOTO GRID --}}
     <section class="section section--cream gallery-section">
         <div class="container">
             <div class="gallery">
@@ -46,7 +44,6 @@
                             </span>
                         </a>
                     @else
-                        {{-- Muncul kalau file fotonya belum ada --}}
                         <div class="gallery__item gallery__item--empty" data-animate="zoom-in" data-delay="{{ $delay }}" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="9" cy="9" r="1.8"/><path d="m21 15-5-5L5 21"/></svg>
                         </div>
@@ -56,7 +53,6 @@
         </div>
     </section>
 
-    {{-- LIGHTBOX --}}
     <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Pratinjau foto">
         <button type="button" class="lightbox__btn lightbox__close" data-lb-close aria-label="Tutup">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -97,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
         img.alt = items[index].querySelector('img').alt;
         count.textContent = (index + 1) + ' / ' + items.length;
 
-
         [index + 1, index - 1].forEach(function (n) {
             var p = new Image();
             p.src = items[(n + items.length) % items.length].getAttribute('href');
@@ -129,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
     box.querySelector('[data-lb-prev]').addEventListener('click', function () { show(index - 1); });
     box.querySelector('[data-lb-next]').addEventListener('click', function () { show(index + 1); });
 
-    // klik area gelap di luar foto = tutup
     box.addEventListener('click', function (e) {
         if (e.target === box || e.target.classList.contains('lightbox__stage')) close();
     });
@@ -141,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.key === 'ArrowRight') show(index + 1);
     });
 
-    // geser di layar 
     var sx = null;
     box.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
     box.addEventListener('touchend', function (e) {

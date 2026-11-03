@@ -19,7 +19,6 @@ class Faq extends Model
         'sort_order' => 'integer',
     ];
 
-    /** Hanya untuk FAQ aktif, urut sesuai sort_order. */
     public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true)

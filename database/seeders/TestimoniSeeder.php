@@ -10,9 +10,6 @@ use Illuminate\Database\Seeder;
 
 class TestimoniSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         Testimoni::factory()

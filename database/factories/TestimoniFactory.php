@@ -5,16 +5,8 @@ namespace Database\Factories;
 use App\Models\Testimoni;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends Factory<Testimoni>
- */
 class TestimoniFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [

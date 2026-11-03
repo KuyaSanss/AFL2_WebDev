@@ -22,7 +22,6 @@ class Testimonial extends Model
         'sort_order' => 'integer',
     ];
 
-    /** Hanya testimoni yang aktif, urut sesuai sort_order lalu terbaru. */
     public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true)
@@ -30,7 +29,6 @@ class Testimonial extends Model
                      ->orderByDesc('id');
     }
 
-    /** Inisial untuk avatar, contoh: "Budi Santoso" -> "BS". */
     public function getInitialsAttribute(): string
     {
         return collect(explode(' ', trim($this->name)))

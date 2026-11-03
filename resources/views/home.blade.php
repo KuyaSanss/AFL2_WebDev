@@ -33,7 +33,6 @@
         <div class="hazard" aria-hidden="true"></div>
     </section>
 
-    {{-- SEJARAH --}}
     <section class="section section--cream" id="tentang">
         <div class="container about">
             <div class="about__media" data-animate="fade-right">
@@ -66,7 +65,6 @@
         </div>
     </section>
 
-    {{-- VISI & MISI --}}
     <section class="section section--dark" id="visi-misi">
         <div class="container">
             <p class="eyebrow eyebrow--yellow">Arah &amp; Komitmen</p>
@@ -96,7 +94,6 @@
         </div>
     </section>
 
-    {{-- LOKASI & JAM BUKA --}}
     <section class="section section--sand" id="lokasi">
         <div class="container">
             <p class="eyebrow">Kunjungi Kami</p>
@@ -141,10 +138,8 @@
         </div>
     </section>
 
-    {{-- TESTIMONI --}}
     @include('testimonials', ['testimonials' => $testimonials ?? collect()])
 
-    {{-- FAQ --}}
     @include('faq', ['faqs' => $faqs ?? collect()])
 
 @endsection
