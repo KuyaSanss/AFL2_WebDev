@@ -21,5 +21,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+<<<<<<< Updated upstream
+=======
+
+        $this->call([
+            BarangSeeder::class,
+            TestimoniSeeder::class,
+            FaqSeeder::class,  
+            TestimonialSeeder::class,
+            TestimoniSeeder::class,
+        ]);
+
+>>>>>>> Stashed changes
     }
 }
