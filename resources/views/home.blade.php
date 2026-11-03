@@ -2,6 +2,9 @@
 
 @section('title', 'Beranda - Era Jaya Toko Bangunan')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('mydesign/home.css') }}?v={{ filemtime(public_path('mydesign/home.css')) }}">@endpush
+
 @section('content')
     <section class="hero" style="--hero-image: url('{{ asset('images/Luar.jpeg') }}');">
         <div class="container hero__content">
@@ -104,8 +107,6 @@
                     <div class="map-frame">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7921.97643371301!2d112.04198844416277!3d-6.892012122428273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77bd52e177f59d%3A0x773323ab518d5c46!2sTB.%20Era%20Jaya!5e0!3m2!1sen!2sid!4v1793116530339!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Peta lokasi toko Era Jaya"></iframe>
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=TB.+Era+Jaya+Tuban" class="btn btn--red btn--sm" target="_blank" rel="noopener">
-                    </a>
                 </div>
 
                 <aside class="info-panel" data-animate="fade-left">

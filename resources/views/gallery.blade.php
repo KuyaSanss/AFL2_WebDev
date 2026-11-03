@@ -3,6 +3,9 @@
 @section('title', 'Galeri - Era Jaya Toko Bangunan')
 @section('description', 'Galeri foto suasana dan fasilitas Toko Bangunan Era Jaya.')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('mydesign/gallery.css') }}?v={{ filemtime(public_path('mydesign/gallery.css')) }}">@endpush
+
 @php
     $photos = array_map(fn ($n) => "galeri-{$n}.jpeg", range(1, 12));
 @endphp

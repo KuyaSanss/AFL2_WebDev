@@ -2,6 +2,9 @@
 
 @section('title', 'Katalog - Era Jaya Toko Bangunan')
 
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('mydesign/catalogue.css') }}?v={{ filemtime(public_path('mydesign/catalogue.css')) }}">@endpush
+
 @section('content')
 
     <section class="page-hero">
