@@ -19,11 +19,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             BarangSeeder::class,
-            TestimoniSeeder::class,
-
             FaqSeeder::class,
             TestimonialSeeder::class,
-            TestimoniSeeder::class,
         ]);
     }
 }
