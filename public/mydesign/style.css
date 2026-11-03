@@ -1055,10 +1055,6 @@ html:not(.js-anim) .faq__a { grid-template-rows: 1fr; }
 /* Cegah scrollbar horizontal */
 html, body { overflow-x: hidden; }
 
-<<<<<<< Updated upstream
-@media (max-width: 768px) {
-    .map-frame { min-height: 280px; }
-=======
 .hero::before { animation: none !important; }
 
 .scroll-progress, .wa-float::after { display: none !important; }
@@ -1070,5 +1066,4 @@ html, body { overflow-x: hidden; }
     font-size: .75rem;
     letter-spacing: .04em;       /* sebelumnya .08em, huruf lebih rapat */
     gap: 6px;
->>>>>>> Stashed changes
 }
