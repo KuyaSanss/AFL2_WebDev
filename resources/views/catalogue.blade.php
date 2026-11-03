@@ -59,7 +59,6 @@
                         <thead>
                             <tr>
                                 <th>Nama Barang</th>
-                                <th>Kode</th>
                                 <th>Stok</th>
                                 <th>Satuan</th>
                                 <th>Harga</th>
@@ -69,7 +68,6 @@
                             @foreach ($barangs as $barang)
                                 <tr>
                                     <td class="catalog-table__name">{{ $barang->name }}</td>
-                                    <td>{{ $barang->code }}</td>
                                     <td>
                                         @if ($barang->stok > 0)
                                             <span class="catalog-badge">{{ $barang->stok + 0}}</span>
