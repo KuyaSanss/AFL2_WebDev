@@ -791,10 +791,6 @@ html:not(.jsAnim) .faqA {
     justify-content: center;
 }
 
-.hero .hazard {
-    display: none;
-}
-
 .hero::before {
     animation: none !important;
 }

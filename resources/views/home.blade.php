@@ -27,6 +27,7 @@
             </div>
 
             <p class="heroNote">Untuk pemesanan, silakan hubungi kami melalui WhatsApp.</p>
+            
         </div>
 
         <a href="#tentang" class="heroScroll" aria-label="Gulir ke bawah">
