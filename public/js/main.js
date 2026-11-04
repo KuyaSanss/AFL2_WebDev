@@ -17,12 +17,12 @@
 
         function setOpen(open) {
             if (!toggle || !menu) return;
-            menu.classList.toggle('is-open', open);
+            menu.classList.toggle('isOpen', open);
             toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         }
         if (toggle && menu) {
             toggle.addEventListener('click', function () {
-                setOpen(!menu.classList.contains('is-open'));
+                setOpen(!menu.classList.contains('isOpen'));
             });
             menu.addEventListener('click', function (e) {
                 if (e.target.closest('a')) setOpen(false);
@@ -33,7 +33,7 @@
         }
 
         function onScroll() {
-            header.classList.toggle('is-scrolled', window.scrollY > 24);
+            header.classList.toggle('isScrolled', window.scrollY > 24);
         }
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
@@ -41,7 +41,7 @@
 
     function initProgress() {
         var bar = d.createElement('div');
-        bar.className = 'scroll-progress';
+        bar.className = 'scrollProgress';
         bar.setAttribute('aria-hidden', 'true');
         d.body.appendChild(bar);
 
@@ -61,11 +61,11 @@
     function initReveal() {
         var auto = [
             ['.section .eyebrow',    'fade-up', 0,   0],
-            ['.section-title',       'fade-up', 0,   100],
+            ['.sectionTitle',       'fade-up', 0,   100],
             ['.carousel',            'fade-up', 0,   150],
-            ['.footer__grid > *',    'fade-up', 120, 0],
-            ['.info-item',           'fade-up', 150, 350],
-            ['.faq__item',           'fade-up', 90,  120]
+            ['.footerGrid > *',    'fade-up', 120, 0],
+            ['.infoItem',           'fade-up', 150, 350],
+            ['.faqItem',           'fade-up', 90,  120]
         ];
         auto.forEach(function (a) {
             Array.prototype.forEach.call(d.querySelectorAll(a[0]), function (el, i) {
@@ -78,9 +78,9 @@
         var items = d.querySelectorAll('[data-animate]');
 
         function show(el) {
-            el.classList.add('is-visible');
+            el.classList.add('isVisible');
             var delay = parseInt(el.getAttribute('data-delay') || '0', 10);
-            setTimeout(function () { el.classList.add('is-done'); }, delay + 1000);
+            setTimeout(function () { el.classList.add('isDone'); }, delay + 1000);
         }
 
         Array.prototype.forEach.call(items, function (el) {
@@ -88,7 +88,7 @@
         });
 
         if (reduce || !('IntersectionObserver' in window)) {
-            Array.prototype.forEach.call(items, function (el) { el.classList.add('is-visible', 'is-done'); });
+            Array.prototype.forEach.call(items, function (el) { el.classList.add('isVisible', 'isDone'); });
             return;
         }
 
@@ -105,7 +105,7 @@
         window.addEventListener('scroll', function () {
             if (window.innerHeight + window.scrollY < d.documentElement.scrollHeight - 4) return;
             Array.prototype.forEach.call(items, function (el) {
-                if (!el.classList.contains('is-visible')) { show(el); io.unobserve(el); }
+                if (!el.classList.contains('isVisible')) { show(el); io.unobserve(el); }
             });
         }, { passive: true });
     }
@@ -113,10 +113,10 @@
     function initFaq() {
         var list = d.querySelector('[data-faq]');
         if (!list) return;
-        var items = list.querySelectorAll('.faq__item');
+        var items = list.querySelectorAll('.faqItem');
 
         function setItem(item, open) {
-            item.classList.toggle('is-open', open);
+            item.classList.toggle('isOpen', open);
             var btn = item.querySelector('button');
             if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         }
@@ -125,7 +125,7 @@
             var btn = item.querySelector('button');
             if (!btn) return;
             btn.addEventListener('click', function () {
-                var willOpen = !item.classList.contains('is-open');
+                var willOpen = !item.classList.contains('isOpen');
                 Array.prototype.forEach.call(items, function (o) { setItem(o, false); });
                 setItem(item, willOpen);
             });

@@ -1,29 +1,29 @@
 @if ($faqs->isNotEmpty())
-<section class="section section--sand" id="faq">
+<section class="section sectionSand" id="faq">
     <div class="container faq">
-        <div class="faq__intro" data-animate="fade-right">
+        <div class="faqIntro" data-animate="fade-right">
             <p class="eyebrow">Tanya Jawab</p>
-            <h2 class="section-title">Pertanyaan Umum</h2>
+            <h2 class="sectionTitle">Pertanyaan Umum</h2>
             <p>
                 Belum menemukan jawaban yang Anda cari? Tanyakan langsung kepada kami,
                 tim Era Jaya siap membantu.
             </p>
         </div>
 
-        <div class="faq__list" data-faq>
+        <div class="faqList" data-faq>
             @foreach ($faqs as $faq)
-                <div class="faq__item {{ $loop->first ? 'is-open' : '' }}">
-                    <h3 class="faq__q">
+                <div class="faqItem {{ $loop->first ? 'isOpen' : '' }}">
+                    <h3 class="faqQ">
                         <button type="button"
                                 id="faq-q-{{ $faq->id }}"
                                 aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
                                 aria-controls="faq-a-{{ $faq->id }}">
                             <span>{{ $faq->question }}</span>
-                            <span class="faq__icon" aria-hidden="true"></span>
+                            <span class="faqIcon" aria-hidden="true"></span>
                         </button>
                     </h3>
-                    <div class="faq__a" id="faq-a-{{ $faq->id }}" role="region" aria-labelledby="faq-q-{{ $faq->id }}">
-                        <div class="faq__a-inner">
+                    <div class="faqA" id="faq-a-{{ $faq->id }}" role="region" aria-labelledby="faq-q-{{ $faq->id }}">
+                        <div class="faqAInner">
                             <p>{!! nl2br(e($faq->answer)) !!}</p>
                         </div>
                     </div>

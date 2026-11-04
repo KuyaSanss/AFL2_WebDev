@@ -7,7 +7,7 @@
     <meta name="description" content="@yield('description', 'Era Jaya, toko bangunan dengan material lengkap dan harga bersaing.')">
     <link rel="icon" href="{{ asset('images/logo.png') }}">
 
-    <script>document.documentElement.classList.add('js-anim');</script>
+    <script>document.documentElement.classList.add('jsAnim');</script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

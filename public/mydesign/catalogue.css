@@ -1,4 +1,4 @@
-.catalog-filter {
+.catalogFilter {
     position: sticky;
     top: 70px;
     z-index: 40;
@@ -7,13 +7,13 @@
     border-bottom: 3px solid var(--dark);
 }
 
-.catalog-filter__form {
+.catalogFilterForm {
     display: flex;
     align-items: flex-end;
     gap: 16px;
 }
 
-.catalog-search {
+.catalogSearch {
     flex: 1;
     display: flex;
     align-items: center;
@@ -24,7 +24,7 @@
     border: 2px solid var(--dark);
 }
 
-.catalog-search input {
+.catalogSearch input {
     flex: 1;
     height: 100%;
     border: 0;
@@ -34,21 +34,21 @@
     background: transparent;
 }
 
-.catalog-sort {
+.catalogSort {
     display: flex;
     flex-direction: column;
     gap: 6px;
     width: 260px;
 }
 
-.catalog-sort label {
+.catalogSort label {
     font-size: .72rem;
     font-weight: 700;
     letter-spacing: .06em;
     text-transform: uppercase;
 }
 
-.catalog-sort select {
+.catalogSort select {
     height: 56px;
     padding: 0 16px;
     font: inherit;
@@ -58,16 +58,16 @@
     cursor: pointer;
 }
 
-.catalog-filter__count {
+.catalogFilterCount {
     margin-top: 12px;
     font-size: .9rem;
 }
 
-.catalog-section {
+.catalogSection {
     padding: 48px 0 90px;
 }
 
-.catalog-note {
+.catalogNote {
     margin-bottom: 28px;
     padding: 20px 26px;
     background: var(--yellow);
@@ -76,23 +76,23 @@
     font-size: 1.05rem;
 }
 
-.catalog-table-wrap {
+.catalogTableWrap {
     overflow-x: auto;
     background: #fff;
     border: 3px solid var(--dark);
 }
 
-.catalog-table {
+.catalogTable {
     width: 100%;
     min-width: 760px;
     border-collapse: collapse;
 }
 
-.catalog-table th {
+.catalogTable th {
     padding: 20px 16px;
     background: var(--dark);
     color: #fff;
-    font-family: var(--font-display);
+    font-family: var(--fontDisplay);
     font-weight: 600;
     font-size: 1rem;
     letter-spacing: .04em;
@@ -100,35 +100,35 @@
     text-transform: uppercase;
 }
 
-.catalog-table td {
+.catalogTable td {
     padding: 16px;
     border-bottom: 1px solid #dcdcdc;
     font-size: 1rem;
 }
 
-.catalog-table tbody tr:last-child td {
+.catalogTable tbody tr:last-child td {
     border-bottom: 0;
 }
 
-.catalog-table tbody tr {
+.catalogTable tbody tr {
     transition: background .2s;
 }
 
-.catalog-table tbody tr:hover {
+.catalogTable tbody tr:hover {
     background: #fffbea;
 }
 
-.catalog-table__name {
+.catalogTableName {
     font-weight: 700;
 }
 
-.catalog-table__price {
+.catalogTablePrice {
     font-weight: 700;
     color: var(--red);
     white-space: nowrap;
 }
 
-.catalog-badge {
+.catalogBadge {
     display: inline-block;
     padding: 3px 8px;
     background: var(--yellow);
@@ -136,25 +136,25 @@
     font-weight: 600;
 }
 
-.catalog-badge--empty {
+.catalogBadgeEmpty {
     background: var(--red);
     color: #fff;
 }
 
-.catalog-empty {
+.catalogEmpty {
     padding: 60px 24px;
     text-align: center;
     background: #fff;
     border: 3px solid var(--dark);
 }
 
-.catalog-empty h2 {
-    font-family: var(--font-display);
+.catalogEmpty h2 {
+    font-family: var(--fontDisplay);
     font-size: 1.8rem;
     text-transform: uppercase;
 }
 
-.catalog-pagination {
+.catalogPagination {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -162,7 +162,7 @@
     margin-top: 28px;
 }
 
-.catalog-pagination__btn {
+.catalogPaginationBtn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -174,39 +174,39 @@
     transition: background .2s;
 }
 
-.catalog-pagination__num {
+.catalogPaginationNum {
     width: 36px;
     padding: 0;
 }
 
-.catalog-pagination__btn:hover {
+.catalogPaginationBtn:hover {
     background: var(--sand);
 }
 
-.catalog-pagination__btn.is-active {
+.catalogPaginationBtn.isActive {
     background: var(--yellow);
 }
 
 @media (max-width: 768px) {
-    .catalog-filter {
+    .catalogFilter {
         position: static;
     }
 
-    .catalog-filter__form {
+    .catalogFilterForm {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .catalog-sort {
+    .catalogSort {
         width: 100%;
     }
 
-    .catalog-search,
-    .catalog-sort select {
+    .catalogSearch,
+    .catalogSort select {
         height: 50px;
     }
 
-    .catalog-note {
+    .catalogNote {
         padding: 16px 18px;
         font-size: .95rem;
     }

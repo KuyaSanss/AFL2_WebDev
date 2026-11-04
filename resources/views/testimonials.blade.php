@@ -1,27 +1,27 @@
 @if ($testimonials->isNotEmpty())
-<section class="section section--cream" id="testimoni">
+<section class="section sectionCream" id="testimoni">
     <div class="container">
         <p class="eyebrow">Kata Pelanggan</p>
-        <h2 class="section-title">Testimoni</h2>
+        <h2 class="sectionTitle">Testimoni</h2>
 
         <div class="carousel" data-carousel aria-roledescription="carousel" aria-label="Testimoni pelanggan">
-            <div class="carousel__track" data-carousel-track tabindex="0">
+            <div class="carouselTrack" data-carousel-track tabindex="0">
                 @foreach ($testimonials as $t)
-                    <div class="carousel__slide" role="group" aria-roledescription="slide"
+                    <div class="carouselSlide" role="group" aria-roledescription="slide"
                          aria-label="{{ $loop->iteration }} dari {{ $loop->count }}">
-                        <figure class="t-card">
-                            <div class="t-card__stars" role="img" aria-label="Rating {{ $t->rating }} dari 5">
+                        <figure class="tCard">
+                            <div class="tCardStars" role="img" aria-label="Rating {{ $t->rating }} dari 5">
                                 @for ($i = 1; $i <= 5; $i++)
-                                    <svg viewBox="0 0 24 24" width="20" height="20" class="{{ $i <= $t->rating ? 'is-on' : '' }}" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" class="{{ $i <= $t->rating ? 'isOn' : '' }}" aria-hidden="true">
                                         <path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9L12 2.5Z"/>
                                     </svg>
                                 @endfor
                             </div>
 
-                            <blockquote class="t-card__text">{{ $t->content }}</blockquote>
+                            <blockquote class="tCardText">{{ $t->content }}</blockquote>
 
-                            <figcaption class="t-card__author">
-                                <span class="t-card__avatar" aria-hidden="true">{{ $t->initials }}</span>
+                            <figcaption class="tCardAuthor">
+                                <span class="tCardAvatar" aria-hidden="true">{{ $t->initials }}</span>
                                 <span>
                                     <strong>{{ $t->name }}</strong>
                                     @if ($t->role)
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.button !== 0) return;
         down = true; moved = false;
         startX = e.pageX; startLeft = track.scrollLeft;
-        track.classList.add('is-dragging');
+        track.classList.add('isDragging');
     });
     window.addEventListener('mousemove', function (e) {
         if (!down) return;
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('mouseup', function () {
         if (!down) return;
         down = false;
-        track.classList.remove('is-dragging');
+        track.classList.remove('isDragging');
     });
     track.addEventListener('click', function (e) { if (moved) { e.preventDefault(); moved = false; } }, true);
     track.addEventListener('dragstart', function (e) { e.preventDefault(); });
