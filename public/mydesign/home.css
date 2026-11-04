@@ -8,6 +8,7 @@
         linear-gradient(90deg, rgba(27, 27, 27, .88) 0%, rgba(27, 27, 27, .7) 55%, rgba(27, 27, 27, .45) 100%),
         var(--heroImage, none) center / cover no-repeat,
         var(--darker);
+    padding-top: 80px;
 }
 
 .heroContent {

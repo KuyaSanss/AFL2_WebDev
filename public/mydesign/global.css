@@ -588,6 +588,7 @@ p {
     padding: 96px 0 118px;
     background: var(--dark);
     color: #fff;
+    padding-top: 150px;
 }
 
 .pageHero::before {
